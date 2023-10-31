@@ -1,36 +1,27 @@
+import foods.Dish;
+import foods.Food;
+import foods.Menu;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args)
     {
-        System.out.println("Preparing the data...");
-        Food[] data = new Food[5];
-        data[0] = new Food("Burger", 2.4, 25, 250, 250);
-        data[1] = new Food("Pizza", 3.2, 15, 300, 300);
-        data[2] = new Food("Salad", 1.5, 5, 100, 150);
-        data[3] = new Food("Soup", 1.2, 8, 150, 200);
-        data[4] = new Food("Sandwich", 2.0, 10, 200, 250);
-        System.out.println("Data is ready.");
-        System.out.println("Printing the data...");
+        Food[] foods = new Food[4];
+        foods[0] = new foods.Salad(1.0, 2.0, 3.0);
+        foods[1] = new foods.Sandwich(4.0, 5.0, 6.0);
+        foods[2] = new foods.Soup(7.0, 8.0, 9.0);
+        foods[3] = new foods.Pizza(10.0, 11.0, 12.0);
 
-        for (int i = 0; i < data.length; i++)
+        List<Dish> dishes = new ArrayList<>();
+        for (Food food : foods)
         {
-            System.out.println("Dish [name=Diet n." + (i + 1) + ", 0 ingredients, price " + data[i].getPrice() + "]");
-            Ingredient ingredient1 = new Ingredient("Ingredient 1 added", data[i]);
-            Ingredient ingredient2 = new Ingredient("Ingredient 2 added", data[i]);
-            System.out.println(ingredient1 + ": " + new Food("Cereal", 19.3, 32.4, 110, 200));
-            System.out.println(ingredient2 + ": " + new Food("Fish", 31.3, 25.3, 200, 300));
+            List<Food> listFoods = new ArrayList<>();
+            listFoods.add(food);
+            dishes.add(new Dish("Diet " + (dishes.size() + 1), listFoods));
         }
+        Menu menu = new Menu("Spring Menu", "Shop 1", dishes);
+        System.out.println(menu.generateMenuOutput());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
