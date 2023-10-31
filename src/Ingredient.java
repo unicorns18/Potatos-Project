@@ -1,7 +1,7 @@
 public class Ingredient
 {
     private final String name;
-    private Food food;
+    private final Food food;
 
     public Ingredient(String name, Food food)
     {
@@ -13,13 +13,5 @@ public class Ingredient
     public String toString()
     {
         return name + " (" + food.getName() + "; Food [proteins=" + food.getProteins() + "g, calories=" + food.getCalories() + " calories, weight=" + food.getWeight() + "g])";
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Food getFood() {
-        return food;
     }
 }
